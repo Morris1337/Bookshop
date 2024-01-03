@@ -14,9 +14,11 @@
 
 @mixin display-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100px 100px;
     gap: 10px;
 }
+
+$fontDefault: "MontserratNormal";
 
 @font-face {
     font-family: "MontserratBold";
@@ -24,7 +26,7 @@
 }
 
 @font-face {
-    font-family: "MontserratNormal";
+    font-family: $fontDefault;
     src: url(../font/Montserrat/Montserrat-Medium.ttf);
 }
 
@@ -34,9 +36,10 @@ body{
     width: 1440px;
 }
 
-body, header, main, footer, h1, h2, h3, h4, h5, h6{
+body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li{
     margin: 0;
     padding: 0;
+    font-family: $fontDefault;
 }
 
 header{
@@ -52,7 +55,7 @@ header{
 
 .menu{
     @include display-flex;
-    font-size: $fontMenu;
+    font-size: 10px
 }
 
 li{
@@ -66,10 +69,6 @@ a{
 
 .logo{
     margin-left: 143px;
-}
-
-.menu{
-    font-family: "MontserratNormal";
 }
 
 .client-elem-section{
@@ -126,6 +125,12 @@ a{
 
 // section two
 
+.section-two{
+    @include display-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 .category{
     background-color: #EFEEF6;
     width: 416px;
@@ -144,10 +149,59 @@ a{
 }
 
 .category-li{
-    margin-top: 22px;
-    font-family: "MontserratNormal";
+    margin-top: 23px;
     font-size: 12px;
 }
 
+.guud-section{
+    @include display-grid;
+    grid-template-columns: repeat(2, 500px);
+    position: relative;
+    top: 120px;
+    right: 70px
 
+    
+}
+
+.guud-list{
+    @include display-grid;
+    grid-template-columns: 235px 190px;
+    position: relative;
+    z-index: 5;
+    align-items: center;
+    p{
+        margin-top: 4px;
+        font-size: 10px
+    }
+    h2{
+        margin-top: 4px;
+        font-size: 16px
+    }
+    h3{
+        margin-top: 16px;
+        font-size: 13px
+    }
+    button{
+        cursor: pointer;
+        width: 176px;
+        height: 45px;
+        margin-top: 16px;
+        background-color: #ffffff;
+        border: #4C3DB2 solid 1px;
+        color: #4C3DB2;
+        &:hover{
+            background-color: #9692aa;
+        }
+    }
+    
+}
+
+.guud-info{
+    margin-top: -65px
+}
+
+.guud{
+    @include display-flex;
+    flex-direction: column;
+}
 

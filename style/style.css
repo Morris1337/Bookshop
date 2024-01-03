@@ -7,9 +7,10 @@
 body {
   width: 1440px; }
 
-body, header, main, footer, h1, h2, h3, h4, h5, h6 {
+body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: "MontserratNormal"; }
 
 header {
   width: 100%;
@@ -45,9 +46,6 @@ a {
 
 .logo {
   margin-left: 143px; }
-
-.menu {
-  font-family: "MontserratNormal"; }
 
 .client-elem-section {
   margin-right: 145px; }
@@ -95,6 +93,13 @@ a {
 .ellipse-img {
   cursor: pointer; }
 
+.section-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start; }
+
 .category {
   background-color: #EFEEF6;
   width: 416px;
@@ -113,8 +118,53 @@ a {
   left: 107px; }
 
 .category-li {
-  margin-top: 22px;
-  font-family: "MontserratNormal";
+  margin-top: 23px;
   font-size: 12px; }
+
+.guud-section {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  gap: 10px;
+  grid-template-columns: repeat(2, 500px);
+  position: relative;
+  top: 120px;
+  right: 70px; }
+
+.guud-list {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  gap: 10px;
+  grid-template-columns: 235px 190px;
+  position: relative;
+  z-index: 5;
+  align-items: center; }
+  .guud-list p {
+    margin-top: 4px;
+    font-size: 10px; }
+  .guud-list h2 {
+    margin-top: 4px;
+    font-size: 16px; }
+  .guud-list h3 {
+    margin-top: 16px;
+    font-size: 13px; }
+  .guud-list button {
+    cursor: pointer;
+    width: 176px;
+    height: 45px;
+    margin-top: 16px;
+    background-color: #ffffff;
+    border: #4C3DB2 solid 1px;
+    color: #4C3DB2; }
+    .guud-list button:hover {
+      background-color: #9692aa; }
+
+.guud-info {
+  margin-top: -65px; }
+
+.guud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
 /*# sourceMappingURL=style.css.map */
