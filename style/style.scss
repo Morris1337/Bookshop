@@ -1,40 +1,5 @@
-@mixin display-flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin li-list{
-    list-style: none;
-    list-style-type: none;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-}
-
-@mixin display-grid{
-    display: grid;
-    grid-template-columns: 100px 100px;
-    gap: 10px;
-}
-
-$fontDefault: "MontserratNormal";
-
-@font-face {
-    font-family: "MontserratBold";
-    src: url(../font/Montserrat/Montserrat-Black.ttf);
-}
-
-@font-face {
-    font-family: $fontDefault;
-    src: url(../font/Montserrat/Montserrat-Medium.ttf);
-}
-
-$fontMenu: 10px;
-
-body{
-    width: 1440px;
-}
+@import "variables";
+@import "lowSize";
 
 body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li{
     margin: 0;
@@ -77,16 +42,22 @@ a{
 
 // section one
 
-.banner{
-    position: absolute;
-    z-index: 1;
-    margin-top: -45px;
-    left: 85px;
-}
-
 .banner-img{
-    width: 1250px;
-    height: 750px;
+    width: 1200px;
+    height: 702px;
+    // display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    position: absolute;
+    right: 100%;
+    &.active{
+        // display: flex;
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        left: 0%;
+    }
 }
 
 .section-one{
@@ -95,14 +66,22 @@ a{
     position: relative;
     z-index: 2;
 }
+
+.section-one-banners{
+    display: flex;
+    justify-content: center;
+    margin-left: 260px
+}
+
+
 .promo{
     @include display-flex;
     flex-direction: column;
     align-items: flex-end;
     position: relative;
     z-index: 2;
-    top: 6vh;
-    left: 8px;
+    top: 2vh;
+    right: 84px;
 }
 
 .promo-one{
@@ -111,23 +90,30 @@ a{
 
 .ellipse{
     @include display-flex;
-    margin-left: 20px;
-    margin-top: 80px;
+    margin-left: 40px;
+    margin-top: 10px;
 }
 
-.ellipse-one, .ellipse-two, .ellipse-three{
-    margin-left: 20px;
-}
-
-.ellipse-img{
+.ellipse-circle{
+    position: relative;
+    z-index: 20;
     cursor: pointer;
+    background-color: #EFEEF6;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 8px 13px;
+    border-radius: 5px;
+    margin-left: -5px;
+    &.push{
+        background-color: #9E98DC
+    }
 }
 
 // section two
 
 .section-two{
     @include display-flex;
-    justify-content: flex-start;
     align-items: flex-start;
 }
 
@@ -159,8 +145,6 @@ a{
     position: relative;
     top: 120px;
     right: 70px
-
-    
 }
 
 .guud-list{
@@ -192,8 +176,7 @@ a{
         &:hover{
             background-color: #9692aa;
         }
-    }
-    
+    }   
 }
 
 .guud-info{

@@ -4,9 +4,22 @@
 @font-face {
   font-family: "MontserratNormal";
   src: url(../font/Montserrat/Montserrat-Medium.ttf); }
-body {
-  width: 1440px; }
+@media (max-width: 1440px) {
+  .client-elem-section {
+    margin-right: 155px !important; }
 
+  .section-one-banners {
+    margin-left: 230px !important; }
+
+  .banner-img {
+    width: 1120px !important;
+    height: 670px !important; }
+
+  .ellipse {
+    margin-left: 9px !important; }
+
+  .section-two {
+    justify-content: flex-start !important; } }
 body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li {
   margin: 0;
   padding: 0;
@@ -50,21 +63,30 @@ a {
 .client-elem-section {
   margin-right: 145px; }
 
-.banner {
-  position: absolute;
-  z-index: 1;
-  margin-top: -45px;
-  left: 85px; }
-
 .banner-img {
-  width: 1250px;
-  height: 750px; }
+  width: 1200px;
+  height: 702px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  position: absolute;
+  right: 100%; }
+  .banner-img.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    left: 0%; }
 
 .section-one {
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2; }
+
+.section-one-banners {
+  display: flex;
+  justify-content: center;
+  margin-left: 260px; }
 
 .promo {
   display: flex;
@@ -74,8 +96,8 @@ a {
   align-items: flex-end;
   position: relative;
   z-index: 2;
-  top: 6vh;
-  left: 8px; }
+  top: 2vh;
+  right: 84px; }
 
 .promo-one {
   margin-right: 60px; }
@@ -84,20 +106,27 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
-  margin-top: 80px; }
+  margin-left: 40px;
+  margin-top: 10px; }
 
-.ellipse-one, .ellipse-two, .ellipse-three {
-  margin-left: 20px; }
-
-.ellipse-img {
-  cursor: pointer; }
+.ellipse-circle {
+  position: relative;
+  z-index: 20;
+  cursor: pointer;
+  background-color: #EFEEF6;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 8px 13px;
+  border-radius: 5px;
+  margin-left: -5px; }
+  .ellipse-circle.push {
+    background-color: #9E98DC; }
 
 .section-two {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: flex-start;
   align-items: flex-start; }
 
 .category {

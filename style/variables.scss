@@ -1,0 +1,32 @@
+@mixin display-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin li-list{
+    list-style: none;
+    list-style-type: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+@mixin display-grid{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    gap: 10px;
+}
+
+$fontDefault: "MontserratNormal";
+$fontMenu: 10px;
+
+@font-face {
+    font-family: "MontserratBold";
+    src: url(../font/Montserrat/Montserrat-Black.ttf);
+}
+
+@font-face {
+    font-family: $fontDefault;
+    src: url(../font/Montserrat/Montserrat-Medium.ttf);
+}
