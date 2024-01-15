@@ -137,6 +137,10 @@ a{
 .category-li{
     margin-top: 23px;
     font-size: 12px;
+    &.clicked{
+        font-weight: bold;
+        list-style: disc;
+    }
 }
 
 .guud-section{
