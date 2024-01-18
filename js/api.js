@@ -13,9 +13,10 @@ function fetchDataAndUpdateCategory(userCategory) {
         return response.json()
     })
     .then((data)=>{
-        // console.log(data)
+        console.log(data)
+        bookElemSection.innerHTML = "";
         data.items.forEach((name) =>{
-            createBookInfoElem(name.volumeInfo)
+            createBookInfoElem(name)
         })
     })
 }
@@ -47,20 +48,43 @@ function createBookInfoElem(data){
 
     const imgSection = document.createElement("div")
     const img = document.createElement("img")
-    img.src = data.imageLinks.thumbnail;
+    if (data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) {
+        img.src = data.volumeInfo.imageLinks.thumbnail;
+    } else {
+        img.alt = "Book-image";
+    }
     imgSection.appendChild(img)
     bookElemSection.appendChild(imgSection)
 
     const otherInfo = document.createElement("div")
     otherInfo.classList.add("guud-info")
     const author = document.createElement("p")
-    author.textContent = data.authors;
+    author.textContent = data.volumeInfo.authors;
     const title = document.createElement("h2")
+    title.textContent = data.volumeInfo.title;
     // const averageRating = document.createElement("")
     // const ratingCouts = document.createElement("")
+
     const description = document.createElement("p")
+    description.textContent = data.volumeInfo.description
+    const lines = 3;
+    description.style.display = '-webkit-box';
+    description.style.WebkitBoxOrient = 'vertical';
+    description.style.overflow = 'hidden';
+    description.style.webkitLineClamp = lines;
+
     const price = document.createElement("h3")
+    price.textContent = data.saleInfo.retailPrice
+    console.log(data.saleInfo.retailPrice)
     const button = document.createElement("button")
+    button.textContent = "BUY NOW"
+    button.addEventListener("click", () =>{
+        if(button.textContent === "BUY NOW"){
+            button.textContent = "IN THE CART"
+        }else{
+            button.textContent = "BUY NOW"
+        }
+    })
 
     otherInfo.appendChild(author)
     otherInfo.appendChild(title)
@@ -69,7 +93,12 @@ function createBookInfoElem(data){
     otherInfo.appendChild(description)
     otherInfo.appendChild(price)
     otherInfo.appendChild(button)
+    bookInfoBlock.appendChild(imgSection)
+    bookInfoBlock.appendChild(otherInfo)
     bookElemSection.appendChild(bookInfoBlock)
-    bookElemSection.appendChild(otherInfo)
+    setTimeout(() =>{
+        bookInfoBlock.classList.add("active")
+    }, 10)
 }
+
 

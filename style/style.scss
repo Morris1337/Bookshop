@@ -130,8 +130,8 @@ a{
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    top: 45px;
-    left: 107px;
+    // top: 45px;
+    left: 95px;
 }
 
 .category-li{
@@ -147,16 +147,26 @@ a{
     @include display-grid;
     grid-template-columns: repeat(2, 500px);
     position: relative;
-    top: 120px;
-    right: 70px
+    row-gap: 95px;
+    top: 85px;
+    right: 55px
 }
 
 .guud-list{
     @include display-grid;
+    opacity: 0;
+    transition: opacity 1s ease;
     grid-template-columns: 235px 190px;
     position: relative;
     z-index: 5;
     align-items: center;
+    &.active{
+        opacity: 1;
+    }
+    img{
+        width: 212px;
+        height: 300px;
+    }
     p{
         margin-top: 4px;
         font-size: 10px
@@ -190,5 +200,23 @@ a{
 .guud{
     @include display-flex;
     flex-direction: column;
+}
+
+.more-books-block{
+    margin-top: 170px;
+    margin-left: 320px;
+    margin-bottom: 70px;
+    button{
+        cursor: pointer;
+        width: 176px;
+        height: 45px;
+        margin-top: 16px;
+        background-color: #ffffff;
+        border: #4C3DB2 solid 1px;
+        color: #4C3DB2;
+        &:hover{
+            background-color: #9692aa;
+        }
+    }
 }
 
