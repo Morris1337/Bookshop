@@ -63,6 +63,22 @@ a {
 .client-elem-section {
   margin-right: 145px; }
 
+.shop {
+  visibility: hidden; }
+  .shop.in {
+    visibility: visible;
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
+    background-color: red;
+    position: absolute;
+    bottom: 47px;
+    right: 152px; }
+    .shop.in p {
+      font-size: 10px;
+      color: white;
+      margin-left: 3.5px; }
+
 .banner-img {
   width: 1200px;
   height: 702px;
@@ -199,6 +215,23 @@ a {
 
 .guud-info {
   margin-top: -65px; }
+
+.infoImg {
+  width: 12px !important;
+  height: 12px !important; }
+
+.info-statistic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; }
+
+.infoPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start; }
 
 .guud {
   display: flex;

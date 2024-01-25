@@ -40,6 +40,25 @@ a{
     margin-right: 145px;
 }
 
+ .shop{
+    visibility: hidden;
+    &.in{
+        visibility: visible;
+        width: 12px;
+        height: 12px;
+        border-radius: 10px;
+        background-color: red;
+        position: absolute;
+        bottom: 47px;
+        right: 152px;
+        p{
+            font-size: 10px;
+            color: white;
+            margin-left: 3.5px;
+        }
+    }
+ }
+
 // section one
 
 .banner-img{
@@ -196,6 +215,23 @@ a{
 .guud-info{
     margin-top: -65px
 }
+
+.infoImg{
+    width: 12px!important;
+    height: 12px!important;
+}
+
+.info-statistic{
+    @include display-flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.infoPrice{
+    @include display-flex;
+    justify-content: flex-start;
+}
+
 
 .guud{
     @include display-flex;
