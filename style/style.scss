@@ -1,5 +1,6 @@
 @import "variables";
 @import "lowSize";
+@import "mobile";
 
 body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li{
     margin: 0;
@@ -41,17 +42,19 @@ a{
 }
 
  .shop{
-    visibility: hidden;
+    // visibility: hidden;
+    display: none;
     &.in{
-        visibility: visible;
-        width: 12px;
-        height: 12px;
+        // visibility: visible;
+        display: flex;
+        width: 13px;
+        height: 13px;
         border-radius: 10px;
         background-color: red;
         position: absolute;
-        bottom: 47px;
+        top: 58px;
         right: 152px;
-        p{
+        #cartItemCount{
             font-size: 10px;
             color: white;
             margin-left: 3.5px;
@@ -142,6 +145,9 @@ a{
     height: 710px;
     position: relative;
     top: 45px;
+    .btnOpen{
+        display: none;
+    }
 }
 
 .category-list{

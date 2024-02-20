@@ -20,6 +20,33 @@
 
   .section-two {
     justify-content: flex-start !important; } }
+@media (max-width: 375px) {
+  .section-one {
+    display: none !important; }
+
+  .guud-section {
+    right: -27px !important;
+    grid-template-columns: repeat(1, 500px) !important; }
+
+  .more-books-block button {
+    margin-left: -210px; }
+
+  .category {
+    position: fixed !important;
+    width: 148px !important;
+    display: flex;
+    z-index: 10;
+    left: -146px;
+    top: 190px !important; }
+    .category.active {
+      left: 0; }
+    .category .category-list {
+      left: -31px;
+      top: -10px; }
+    .category .btnOpen {
+      display: block !important;
+      background-color: #EFEEF6;
+      border: 0; } }
 body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li {
   margin: 0;
   padding: 0;
@@ -64,17 +91,17 @@ a {
   margin-right: 145px; }
 
 .shop {
-  visibility: hidden; }
+  display: none; }
   .shop.in {
-    visibility: visible;
-    width: 12px;
-    height: 12px;
+    display: flex;
+    width: 13px;
+    height: 13px;
     border-radius: 10px;
     background-color: red;
     position: absolute;
-    bottom: 47px;
+    top: 58px;
     right: 152px; }
-    .shop.in p {
+    .shop.in #cartItemCount {
       font-size: 10px;
       color: white;
       margin-left: 3.5px; }
@@ -151,6 +178,8 @@ a {
   height: 710px;
   position: relative;
   top: 45px; }
+  .category .btnOpen {
+    display: none; }
 
 .category-list {
   display: flex;

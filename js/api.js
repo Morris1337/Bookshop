@@ -1,4 +1,5 @@
 import {bookInCart} from "./shopCart.js"
+import {storage} from "./localStorage.js"
 
 const API_KEY = "AIzaSyCI1HC6K97kM3xGytOBR8bOoy0P9Q3UoxM";
 const MAX_RESULTS = 6;
@@ -16,6 +17,15 @@ loadMoreBtn.addEventListener("click", ()=>{
     fetchDataAndUpdateCategory(userCategory)
     startIndex += MAX_RESULTS;
 })
+
+const FAVORIT_BOOKS = "Books";
+// let bookCount = "";
+let storageData = JSON.parse(localStorage.getItem(FAVORIT_BOOKS))
+if(!storageData){
+    storageData = [];
+    // bookCount = 0;
+}
+
 
 function fetchDataAndUpdateCategory(userCategory) {
     if(userCategory !== currentCategory){
@@ -128,11 +138,23 @@ function createBookInfoElem(data){
         price.innerHTML = "";
     }
     const button = document.createElement("button")
-    button.classList.add("btnBuy");
+    let isInCart = false;
     button.textContent = "BUY NOW"
+
+    storageData.forEach((value) => {
+        if(value === data.id){
+            isInCart = true;
+            button.textContent = "IN THE CART"
+        }
+     })
+
+     console.log(storageData, data.id)
+    button.classList.add("btnBuy");
     button.addEventListener("click", () =>{
-        bookInCart();
-        if(button.textContent === "BUY NOW"){
+        bookInCart(isInCart);
+        isInCart = !isInCart;
+        storage(data.id, isInCart)
+        if(isInCart){
             button.textContent = "IN THE CART"
         }else{
             button.textContent = "BUY NOW"
@@ -154,6 +176,7 @@ function createBookInfoElem(data){
         bookInfoBlock.classList.add("active")
     }, 10)
 }
+
 
 
 

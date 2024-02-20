@@ -1,0 +1,29 @@
+@media (max-width: 375px) {
+  .section-one {
+    display: none !important; }
+
+  .guud-section {
+    right: -27px !important;
+    grid-template-columns: repeat(1, 500px) !important; }
+
+  .more-books-block button {
+    margin-left: -210px; }
+
+  .category {
+    position: fixed !important;
+    width: 148px !important;
+    display: flex;
+    z-index: 10;
+    left: -146px;
+    top: 190px !important; }
+    .category.active {
+      left: 0; }
+    .category .category-list {
+      left: -31px;
+      top: -10px; }
+    .category .btnOpen {
+      display: block !important;
+      background-color: #EFEEF6;
+      border: 0; } }
+
+/*# sourceMappingURL=mobile.css.map */
