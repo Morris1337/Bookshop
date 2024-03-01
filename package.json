@@ -1,1 +1,14 @@
-{}
+{
+  "scripts": {
+    "test": "test",
+    "compile-css": "sass style/style.scss style/style.css --watch",
+    "build": "webpack",
+    "build:watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.71.1",
+    "scss": "^0.2.4",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}

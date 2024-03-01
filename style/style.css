@@ -4,23 +4,67 @@
 @font-face {
   font-family: "MontserratNormal";
   src: url(../font/Montserrat/Montserrat-Medium.ttf); }
-@media (max-width: 1440px) {
-  .client-elem-section {
-    margin-right: 155px !important; }
-
-  .section-one-banners {
-    margin-left: 230px !important; }
-
-  .banner-img {
-    width: 1120px !important;
-    height: 670px !important; }
-
-  .ellipse {
-    margin-left: 9px !important; }
-
-  .section-two {
-    justify-content: flex-start !important; } }
+@font-face {
+  font-family: "MontserratBold";
+  src: url(../font/Montserrat/Montserrat-Black.ttf); }
+@font-face {
+  font-family: "MontserratNormal";
+  src: url(../font/Montserrat/Montserrat-Medium.ttf); }
 @media (max-width: 375px) {
+  header {
+    position: fixed !important;
+    z-index: 30 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 85px !important; }
+
+  .phone {
+    position: absolute;
+    width: 100px;
+    margin-top: -45px;
+    right: 20px; }
+    .phone .mobile-menu {
+      width: 100px;
+      position: absolute;
+      display: flex !important; }
+      .phone .mobile-menu .mobile-menu-icon {
+        position: absolute;
+        width: 40px; }
+      .phone .mobile-menu .mobile-menu-block {
+        position: relative;
+        margin-top: 95px;
+        display: none;
+        z-index: 10; }
+        .phone .mobile-menu .mobile-menu-block.open {
+          display: flex;
+          flex-direction: column;
+          margin-left: -175px;
+          background-color: #bdb8b8; }
+        .phone .mobile-menu .mobile-menu-block ul {
+          padding: 10px; }
+        .phone .mobile-menu .mobile-menu-block .mobile-client-elem-section {
+          width: 250px;
+          margin-left: 30px; }
+          .phone .mobile-menu .mobile-menu-block .mobile-client-elem-section li {
+            padding: 5px !important; }
+          .phone .mobile-menu .mobile-menu-block .mobile-client-elem-section .shop.in {
+            display: flex !important;
+            top: 40px !important;
+            right: 100px !important; }
+        .phone .mobile-menu .mobile-menu-block .mobile-menu-list li {
+          padding: 5px !important; }
+
+  .client-elem-section {
+    display: none !important; }
+
+  .mobile-client-elem-section {
+    display: flex; }
+
+  .menu {
+    display: none !important; }
+
   .section-one {
     display: none !important; }
 
@@ -47,6 +91,25 @@
       display: block !important;
       background-color: #EFEEF6;
       border: 0; } }
+@media (max-width: 1440px) {
+  .shop.in {
+    right: 152px !important; }
+
+  .client-elem-section {
+    margin-right: 155px !important; }
+
+  .section-one-banners {
+    margin-left: 230px !important; }
+
+  .banner-img {
+    width: 1120px !important;
+    height: 670px !important; }
+
+  .ellipse {
+    margin-left: 9px !important; }
+
+  .section-two {
+    justify-content: flex-start !important; } }
 body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li {
   margin: 0;
   padding: 0;
@@ -54,7 +117,12 @@ body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li {
 
 header {
   width: 100%;
-  height: 116px; }
+  height: 116px;
+  position: relative; }
+  header.scroll {
+    position: fixed;
+    background-color: #FFFFFF;
+    z-index: 30; }
 
 .header-elem-section, .client-elem-section {
   height: 116px;
@@ -84,6 +152,9 @@ a {
   text-decoration: none;
   color: black; }
 
+.mobile-menu {
+  display: none; }
+
 .logo {
   margin-left: 143px; }
 
@@ -91,7 +162,8 @@ a {
   margin-right: 145px; }
 
 .shop {
-  display: none; }
+  display: none;
+  right: 142px !important; }
   .shop.in {
     display: flex;
     width: 13px;
@@ -99,9 +171,8 @@ a {
     border-radius: 10px;
     background-color: red;
     position: absolute;
-    top: 58px;
-    right: 152px; }
-    .shop.in #cartItemCount {
+    top: 58px !important; }
+    .shop.in .cartItemCount {
       font-size: 10px;
       color: white;
       margin-left: 3.5px; }

@@ -1,4 +1,76 @@
+@import "variables";
+
 @media (max-width: 375px) {
+    header{
+        position: fixed!important;
+        z-index: 30!important;
+        @include display-flex;
+        justify-content: space-between;
+        height: 85px!important;
+    }
+
+    .phone{
+        position: absolute;
+        width: 100px;
+        margin-top: -45px;
+        right: 20px;
+        .mobile-menu{
+            width: 100px;
+            .mobile-menu-icon{
+                position: absolute;
+                width: 40px;
+            }
+            position: absolute;
+            display: flex!important;
+            .mobile-menu-block{
+                position: relative;
+                margin-top: 95px;
+                display: none;
+                z-index: 10;
+                &.open{
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: -175px;
+                    background-color: rgb(189, 184, 184);
+                }
+                ul{
+                   padding: 10px; 
+                }
+                .mobile-client-elem-section{
+                    width: 250px;
+                    margin-left: 30px;
+                    li{
+                        padding: 5px!important;
+                    }
+                    .shop{
+                        &.in{
+                            display: flex!important;
+                            top: 40px!important;
+                            right: 100px!important;
+                        }
+                    }
+                }
+                .mobile-menu-list{
+                    li{
+                        padding: 5px!important;
+                    }
+                }
+            }
+        }
+    }
+
+    .client-elem-section{
+        display: none!important;
+    }
+
+    .mobile-client-elem-section{
+        display: flex;
+    }
+
+    .menu{
+        display: none!important;
+    }
+
     .section-one{
         display: none!important;
     }

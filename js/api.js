@@ -1,5 +1,4 @@
-import {bookInCart} from "./shopCart.js"
-import {storage} from "./localStorage.js"
+import {check, cartFunction} from "./localStorage.js"
 
 const API_KEY = "AIzaSyCI1HC6K97kM3xGytOBR8bOoy0P9Q3UoxM";
 const MAX_RESULTS = 6;
@@ -18,14 +17,7 @@ loadMoreBtn.addEventListener("click", ()=>{
     startIndex += MAX_RESULTS;
 })
 
-const FAVORIT_BOOKS = "Books";
-// let bookCount = "";
-let storageData = JSON.parse(localStorage.getItem(FAVORIT_BOOKS))
-if(!storageData){
-    storageData = [];
-    // bookCount = 0;
-}
-
+check()
 
 function fetchDataAndUpdateCategory(userCategory) {
     if(userCategory !== currentCategory){
@@ -52,23 +44,19 @@ const categoryElem = document.querySelectorAll(".category-li");
 
 let isClicked = false;
 
-categoryElem.forEach((element) =>{
-    if (element.dataset.key === userCategory) {
+categoryElem.forEach((element) => {
+    element.addEventListener("click", () => {
+        isClicked = true;
+        const selectedCategory = element.dataset.key;
+        console.log(selectedCategory, userCategory);
+        userCategory = selectedCategory;
+        fetchDataAndUpdateCategory(userCategory);
+        categoryElem.forEach((el) => {
+            el.classList.remove("clicked");
+        });
         element.classList.add("clicked");
-    }else{
-        element.addEventListener("click", () =>{
-            isClicked = true;
-            const selectedCategory = element.dataset.key;
-            console.log(selectedCategory, userCategory);
-            userCategory = selectedCategory
-            fetchDataAndUpdateCategory(userCategory)
-            categoryElem.forEach((el) =>{
-                el.classList.remove("clicked")
-            });
-            element.classList.add("clicked")
-           })
-    }
-})
+    });
+});
 
 fetchDataAndUpdateCategory(userCategory)
 
@@ -114,7 +102,6 @@ function createBookInfoElem(data){
     statisticBlock.appendChild(averageRatingBlock);
     statisticBlock.appendChild(ratingCouts);
 
-
     const description = document.createElement("p")
     description.textContent = data.volumeInfo.description
     const lines = 3;
@@ -137,29 +124,8 @@ function createBookInfoElem(data){
     }else{
         price.innerHTML = "";
     }
-    const button = document.createElement("button")
-    let isInCart = false;
-    button.textContent = "BUY NOW"
-
-    storageData.forEach((value) => {
-        if(value === data.id){
-            isInCart = true;
-            button.textContent = "IN THE CART"
-        }
-     })
-
-     console.log(storageData, data.id)
-    button.classList.add("btnBuy");
-    button.addEventListener("click", () =>{
-        bookInCart(isInCart);
-        isInCart = !isInCart;
-        storage(data.id, isInCart)
-        if(isInCart){
-            button.textContent = "IN THE CART"
-        }else{
-            button.textContent = "BUY NOW"
-        }
-    })
+    const cart = document.querySelector(".shop");
+    const button = cartFunction(data.id, cart);
 
     otherInfo.appendChild(author)
     otherInfo.appendChild(title)

@@ -1,6 +1,6 @@
 @import "variables";
-@import "lowSize";
 @import "mobile";
+@import "lowSize";
 
 body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li{
     margin: 0;
@@ -11,6 +11,12 @@ body, header, main, footer, h1, h2, h3, h4, h5, h6, p, button, li{
 header{
     width: 100%;
     height: 116px;
+    position: relative;
+    &.scroll{
+        position: fixed;
+        background-color: #FFFFFF;
+        z-index: 30;
+    }   
 }
 
 .header-elem-section, .client-elem-section{
@@ -33,6 +39,10 @@ a{
     @include li-list;
 }
 
+.mobile-menu{
+    display: none;
+}
+
 .logo{
     margin-left: 143px;
 }
@@ -42,19 +52,17 @@ a{
 }
 
  .shop{
-    // visibility: hidden;
     display: none;
+    right: 142px!important;
     &.in{
-        // visibility: visible;
         display: flex;
         width: 13px;
         height: 13px;
         border-radius: 10px;
         background-color: red;
         position: absolute;
-        top: 58px;
-        right: 152px;
-        #cartItemCount{
+        top: 58px!important;
+        .cartItemCount{
             font-size: 10px;
             color: white;
             margin-left: 3.5px;

@@ -1,4 +1,10 @@
 @media (max-width: 1440px){
+
+    .shop{
+        &.in{
+            right: 152px!important;
+        }
+    }
     
     .client-elem-section {
         margin-right: 155px!important;
