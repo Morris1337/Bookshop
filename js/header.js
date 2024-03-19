@@ -3,7 +3,7 @@ export function scrollDown(){
 
     function updateHeaderClass(){
         if (window.innerWidth > 375) {
-            if (window.scrollY <= 0) {
+            if (window.scrollY <= 60) {
                 header.classList.remove("scroll");
             } else {
                 header.classList.add("scroll");
