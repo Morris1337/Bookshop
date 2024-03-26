@@ -26,18 +26,48 @@ module.exports = {
     ],
     module: {
       rules: [
-        {
-          test: /\.scss$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          {
+              test: /\.scss$/,
+              use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          },
+          {
+            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  outputPath: 'images',
+                },
+              },
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  mozjpeg: {
+                    progressive: true,
+                    quality: 65
+                  },
+                  optipng: {
+                    enabled: false,
+                  },
+                  pngquant: {
+                    quality: [0.65, 0.90],
+                    speed: 4
+                  },
+                  gifsicle: {
+                    interlaced: false,
+                  },
+                  webp: {
+                    quality: 75
+                  }
+                }
+              }
+            ],
         },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i, 
-          type: 'asset/resource',
-        },
-        {
-          test: /\.(ttf)$/i, 
-          type: 'asset/resource',
-        }
+          {
+              test: /\.(ttf)$/i,
+              type: 'asset/resource',
+          },
       ],
     },
     devServer:{

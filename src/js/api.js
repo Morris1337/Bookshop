@@ -92,7 +92,7 @@ function createBookInfoElem(data){
         for(let i = 0; i < aRating; i++){
             const starImg = document.createElement("img");
             starImg.classList.add("infoImg");
-            starImg.src ="../img/ICON/StarGold.png";
+            starImg.src ="../src/img/ICON/StarGold.png";
             averageRatingBlock.appendChild(starImg);
         }
         ratingCouts.textContent = data.volumeInfo.ratingsCount + " review";
